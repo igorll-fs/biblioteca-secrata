@@ -67,7 +67,7 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B2017]">
+      <section className="relative min-h-[calc(100vh-var(--header-height))] flex items-center justify-center overflow-hidden bg-[#0B2017]">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B2017] via-[#0B2017]/95 to-[#0f2e1f]" />
         <div className="absolute inset-0 opacity-[0.07]">
           <div className="absolute top-20 left-10 w-96 h-96 bg-[#C59B5F] rounded-full blur-[120px] animate-float" />
