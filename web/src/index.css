@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Cinzel Decorative', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --color-forest: #0B2017;
+  --color-olive: #434B3D;
+  --color-chocolate: #4E3621;
+  --color-gold: #C59B5F;
+  --color-cream: #EADFC9;
+  --color-parchment: #F5F1EB;
+}
+
+:root {
+  --brand-forest: #0B2017;
+  --brand-olive: #434B3D;
+  --brand-chocolate: #4E3621;
+  --brand-gold: #C59B5F;
+  --brand-cream: #EADFC9;
+  --brand-parchment: #F5F1EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--brand-parchment);
+  color: var(--brand-forest);
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: var(--brand-gold);
+  color: var(--brand-forest);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--brand-parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-olive);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-gold);
+}
