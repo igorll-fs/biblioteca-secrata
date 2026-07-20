@@ -77,7 +77,7 @@ export default function HomePage() {
 
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #C59B5F 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function HomePage() {
 
       {/* Featured Books */}
       <section className="bg-[#F5F1EB] py-24 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <p className="text-[#C59B5F] text-xs uppercase tracking-[0.25em] mb-3 font-semibold">Seleção Especial</p>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-[#0B2017] mb-4">
@@ -167,13 +167,13 @@ export default function HomePage() {
               <motion.div
                 key={book.id}
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
+                
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl shadow-md overflow-hidden border border-[#C59B5F]/10 hover:border-[#C59B5F]/30 hover:shadow-xl hover:shadow-[#0B2017]/10 transition-all duration-500">
+                <div className="bg-[#EADFC9] rounded-2xl shadow-md overflow-hidden border border-[#C59B5F]/10 hover:border-[#C59B5F]/30 hover:shadow-xl hover:shadow-[#0B2017]/10 transition-all duration-500">
                   <div className="aspect-[3/4] overflow-hidden relative">
                     <img
                       src={book.cover}
@@ -237,7 +237,7 @@ export default function HomePage() {
       <section className="bg-[#0B2017] py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #C59B5F 1px, transparent 0)', backgroundSize: '48px 48px' }} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-20">
             <p className="text-[#C59B5F] text-xs uppercase tracking-[0.25em] mb-3 font-semibold">Simples e Seguro</p>
             <h2 className="font-display text-3xl md:text-5xl font-bold text-[#EADFC9] mb-4">
@@ -254,8 +254,8 @@ export default function HomePage() {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  animate={{ opacity: 1, y: 0 }}
+                  
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                   className="text-center relative"
                 >
@@ -283,7 +283,7 @@ export default function HomePage() {
 
       {/* Features */}
       <section className="bg-[#F5F1EB] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { icon: Shield, title: 'Qualidade Garantida', desc: 'Todos os livros usados passam por avaliação rigorosa de conservação antes de chegar até você.' },
@@ -293,8 +293,8 @@ export default function HomePage() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
+                
                 transition={{ delay: index * 0.15, duration: 0.5 }}
                 className="flex items-start gap-5 p-6 rounded-2xl bg-white border border-[#C59B5F]/10 hover:border-[#C59B5F]/25 hover:shadow-lg transition-all duration-300"
               >
@@ -318,11 +318,11 @@ export default function HomePage() {
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#C59B5F] rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-3xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
