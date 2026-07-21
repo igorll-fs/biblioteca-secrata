@@ -23,7 +23,7 @@ export default function App() {
         <CartProvider>
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex-1 pt-[var(--header-height)]">
+            <main className="flex-1 pt-[var(--header-height)] px-0">
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/livros" element={<CatalogPage />} />

@@ -28,7 +28,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-header bg-[#0B2017]/90 border-b border-[#C59B5F]/15">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-9 h-9 rounded-lg bg-[#C59B5F]/10 flex items-center justify-center group-hover:bg-[#C59B5F]/20 transition-colors">

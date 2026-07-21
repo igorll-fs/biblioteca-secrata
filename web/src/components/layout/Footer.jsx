@@ -4,7 +4,7 @@ import { BookOpen, Mail, MapPin, Phone } from 'lucide-react';
 export default function Footer() {
   return (
     <footer className="bg-[#0B2017] text-[#EADFC9]/70 border-t border-[#C59B5F]/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
