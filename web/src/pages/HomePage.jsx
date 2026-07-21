@@ -77,7 +77,7 @@ export default function HomePage() {
 
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #C59B5F 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,12 +93,12 @@ export default function HomePage() {
               Onde a sabedoria encontra o pergaminho
             </motion.p>
 
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-6">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8">
               <span className="text-[#C59B5F] block">A Biblioteca</span>
               <span className="text-[#EADFC9] block mt-2">Secrata</span>
             </h1>
 
-            <div className="flex justify-center my-8">
+            <div className="flex justify-center mb-10">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: 80 }}
@@ -111,7 +111,7 @@ export default function HomePage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-[#EADFC9]/60 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto font-light"
+              className="text-[#EADFC9]/60 text-lg md:text-xl leading-relaxed mb-16 max-w-2xl mx-auto font-light"
             >
               Um refúgio para mentes inquietas. Descubra livros raros, compre edições exclusivas
               ou alugue por tempo limitado. Cada página, um segredo revelado.
@@ -121,7 +121,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-6 justify-center"
             >
               <Link
                 to="/livros"
@@ -140,7 +140,7 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -152,17 +152,17 @@ export default function HomePage() {
       </section>
 
       {/* Featured Books */}
-      <section className="bg-[#F5F1EB] py-24 relative">
+      <section className="bg-[#F5F1EB] py-32 relative">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16">
-            <p className="text-[#C59B5F] text-xs uppercase tracking-[0.25em] mb-3 font-semibold">Seleção Especial</p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#0B2017] mb-4">
+          <div className="text-center mb-20">
+            <p className="text-[#C59B5F] text-xs uppercase tracking-[0.25em] mb-4 font-semibold">Seleção Especial</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#0B2017] mb-6">
               Livros em Destaque
             </h2>
-            <div className="w-16 h-0.5 bg-[#C59B5F] mx-auto mt-4" />
+            <div className="w-20 h-0.5 bg-[#C59B5F] mx-auto" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {featuredBooks.map((book, index) => (
               <motion.div
                 key={book.id}
@@ -192,12 +192,12 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-display text-base font-bold text-[#0B2017] mb-1 line-clamp-1">
+                  <div className="p-6">
+                    <h3 className="font-display text-base font-bold text-[#0B2017] mb-1.5 line-clamp-1">
                       {book.title}
                     </h3>
-                    <p className="text-[#434B3D] text-sm mb-3">{book.author}</p>
-                    <div className="flex items-center gap-1 mb-4">
+                    <p className="text-[#434B3D] text-sm mb-4">{book.author}</p>
+                    <div className="flex items-center gap-1 mb-5">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
@@ -206,7 +206,7 @@ export default function HomePage() {
                       ))}
                       <span className="text-xs text-[#434B3D] ml-1">{book.rating}</span>
                     </div>
-                    <div className="flex items-center justify-between pt-3 border-t border-[#C59B5F]/10">
+                    <div className="flex items-center justify-between pt-4 border-t border-[#C59B5F]/10">
                       <p className="text-xs text-[#434B3D]">Alugar a partir de <span className="text-[#0B2017] font-semibold">R$ {book.rentPrice.toFixed(2)}/dia</span></p>
                       <Link
                         to={`/livro/${book.id}`}
@@ -221,7 +221,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center mt-16">
             <Link
               to="/livros"
               className="inline-flex items-center gap-2 text-[#0B2017] font-semibold hover:text-[#C59B5F] transition-colors group"
@@ -234,22 +234,22 @@ export default function HomePage() {
       </section>
 
       {/* How it Works */}
-      <section className="bg-[#0B2017] py-24 relative overflow-hidden">
+      <section className="bg-[#0B2017] py-32 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #C59B5F 1px, transparent 0)', backgroundSize: '48px 48px' }} />
 
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-20">
-            <p className="text-[#C59B5F] text-xs uppercase tracking-[0.25em] mb-3 font-semibold">Simples e Seguro</p>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#EADFC9] mb-4">
+          <div className="text-center mb-24">
+            <p className="text-[#C59B5F] text-xs uppercase tracking-[0.25em] mb-4 font-semibold">Simples e Seguro</p>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-[#EADFC9] mb-6">
               Como Funciona
             </h2>
-            <div className="w-16 h-0.5 bg-[#C59B5F] mx-auto mt-4" />
+            <div className="w-20 h-0.5 bg-[#C59B5F] mx-auto" />
           </div>
 
           <div className="relative">
             <div className="hidden md:block absolute top-16 left-[calc(16.66%+40px)] right-[calc(16.66%+40px)] h-px bg-gradient-to-r from-transparent via-[#C59B5F]/30 to-transparent" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
               {steps.map((step, index) => (
                 <motion.div
                   key={index}
@@ -259,7 +259,7 @@ export default function HomePage() {
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                   className="text-center relative"
                 >
-                  <div className="relative inline-flex items-center justify-center mb-8">
+                  <div className="relative inline-flex items-center justify-center mb-10">
                     <div className="w-20 h-20 rounded-full border-2 border-[#C59B5F]/30 flex items-center justify-center bg-[#0B2017]">
                       <span className="font-display text-2xl font-bold text-[#C59B5F]">{index + 1}</span>
                     </div>
@@ -268,7 +268,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <h3 className="font-display text-xl font-bold text-[#EADFC9] mb-3">
+                  <h3 className="font-display text-xl font-bold text-[#EADFC9] mb-4">
                     {step.title}
                   </h3>
                   <p className="text-[#EADFC9]/50 leading-relaxed max-w-xs mx-auto text-sm">
@@ -282,9 +282,9 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section className="bg-[#F5F1EB] py-20">
+      <section className="bg-[#F5F1EB] py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               { icon: Shield, title: 'Qualidade Garantida', desc: 'Todos os livros usados passam por avaliação rigorosa de conservação antes de chegar até você.' },
               { icon: Clock, title: 'Aluguel Flexível', desc: 'Escolha entre 7, 14 ou 30 dias. Renove facilmente se precisar de mais tempo com a história.' },
@@ -296,7 +296,7 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 
                 transition={{ delay: index * 0.15, duration: 0.5 }}
-                className="flex items-start gap-5 p-6 rounded-2xl bg-white border border-[#C59B5F]/10 hover:border-[#C59B5F]/25 hover:shadow-lg transition-all duration-300"
+                className="flex items-start gap-5 p-8 rounded-2xl bg-[#EADFC9] border border-[#C59B5F]/10 hover:border-[#C59B5F]/25 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#C59B5F]/10 flex items-center justify-center border border-[#C59B5F]/15">
                   <item.icon className="w-6 h-6 text-[#C59B5F]" />
@@ -312,7 +312,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative bg-[#0B2017] py-24 overflow-hidden">
+      <section className="relative bg-[#0B2017] py-32 overflow-hidden mt-16">
         <div className="absolute inset-0 opacity-[0.06]">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#C59B5F] rounded-full blur-[150px]" />
           <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#C59B5F] rounded-full blur-[120px]" />
@@ -325,12 +325,12 @@ export default function HomePage() {
             
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-display text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-8">
               <span className="text-[#C59B5F]">Pronto para sua próxima</span>
               <br />
               <span className="text-[#EADFC9]">aventura literária?</span>
             </h2>
-            <p className="text-[#EADFC9]/50 mb-10 text-lg max-w-xl mx-auto leading-relaxed">
+            <p className="text-[#EADFC9]/50 mb-12 text-lg max-w-xl mx-auto leading-relaxed">
               Junte-se a milhares de leitores que já descobriram o segredo da Biblioteca Secrata.
             </p>
             <Link

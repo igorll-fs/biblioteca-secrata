@@ -39,7 +39,7 @@ export default function Header() {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -52,7 +52,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <Link
               to="/carrinho"
               className="relative p-2.5 rounded-xl text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 transition-all"
