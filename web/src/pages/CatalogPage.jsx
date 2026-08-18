@@ -43,16 +43,16 @@ export default function CatalogPage() {
           <div className="absolute top-0 right-0 w-72 h-72 bg-[#C59B5F] rounded-full blur-[100px]" />
           <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-[#434B3D] rounded-full blur-[80px]" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <h1 className="font-display text-3xl md:text-5xl font-bold text-[#EADFC9] mb-2">Catálogo</h1>
-          <p className="text-[#EADFC9]/50 text-lg">Explore nossa coleção de livros para compra ou aluguel</p>
-          <div className="w-12 h-0.5 bg-[#C59B5F] mt-4" />
+          <p className="text-[#EADFC9]/60 text-lg font-light">Explore nossa coleção de livros para compra ou aluguel</p>
+          <div className="w-12 h-0.5 bg-[#C59B5F] mt-4 rounded-full" />
         </div>
       </div>
 
       {/* Search bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-10">
-        <div className="bg-white rounded-2xl shadow-lg shadow-[#0B2017]/8 border border-[#C59B5F]/15 p-2 flex items-center gap-2">
+        <div className="bg-white rounded-2xl shadow-lg shadow-[#0B2017]/8 border border-[#C59B5F]/20 p-2.5 flex items-center gap-2 transition-all duration-300 focus-within:border-[#C59B5F] focus-within:shadow-xl focus-within:shadow-[#C59B5F]/15">
           <div className="flex-1 relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#C59B5F]" />
             <input
@@ -66,7 +66,7 @@ export default function CatalogPage() {
           {search && (
             <button
               onClick={() => setSearch('')}
-              className="p-2 text-[#434B3D]/40 hover:text-[#C59B5F] transition-colors"
+              className="p-2 text-[#434B3D]/40 hover:text-[#C59B5F] transition-colors rounded-lg"
             >
               <X className="w-4 h-4" />
             </button>
@@ -75,13 +75,13 @@ export default function CatalogPage() {
       </div>
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Mobile filter toggle */}
           <div className="lg:hidden">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 bg-[#0B2017] px-5 py-3 rounded-xl text-[#C59B5F] font-medium w-full justify-center border border-[#C59B5F]/20"
+              className="flex items-center gap-2 bg-[#0B2017] px-5 py-3 rounded-xl text-[#C59B5F] font-semibold w-full justify-center border border-[#C59B5F]/30 shadow-md hover:bg-[#0f2e1f] transition-all"
             >
               <SlidersHorizontal className="w-4 h-4" />
               {showFilters ? 'Ocultar Filtros' : 'Filtros'}
@@ -90,7 +90,7 @@ export default function CatalogPage() {
 
           {/* Sidebar */}
           <aside className={`lg:w-72 flex-shrink-0 ${showFilters ? 'block' : 'hidden lg:block'}`}>
-            <div className="bg-white rounded-2xl p-6 sticky top-24 border border-[#C59B5F]/10 shadow-sm">
+            <div className="bg-white rounded-2xl p-6 sticky top-24 border border-[#C59B5F]/20 shadow-md">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-display text-lg font-bold text-[#0B2017]">Filtros</h3>
                 <Filter className="w-4 h-4 text-[#C59B5F]" />
@@ -103,10 +103,10 @@ export default function CatalogPage() {
                     <button
                       key={g}
                       onClick={() => setSelectedGenre(g)}
-                      className={`text-xs px-3 py-1.5 rounded-lg transition-all duration-200 ${
+                      className={`text-xs px-3 py-1.5 rounded-lg border transition-all duration-200 ${
                         selectedGenre === g
-                          ? 'bg-[#0B2017] text-[#C59B5F] font-semibold shadow-sm'
-                          : 'bg-[#F5F1EB] text-[#434B3D] hover:bg-[#C59B5F]/10 hover:text-[#0B2017]'
+                          ? 'bg-[#0B2017] text-[#C59B5F] font-semibold border-[#C59B5F]/40 shadow-sm'
+                          : 'bg-[#F5F1EB] text-[#434B3D] border-transparent hover:bg-[#C59B5F]/10 hover:text-[#0B2017] hover:border-[#C59B5F]/25'
                       }`}
                     >
                       {g}
@@ -120,7 +120,7 @@ export default function CatalogPage() {
                 <select
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full bg-[#F5F1EB] border border-[#C59B5F]/15 rounded-xl px-4 py-2.5 text-sm text-[#0B2017] focus:outline-none focus:border-[#C59B5F] focus:ring-1 focus:ring-[#C59B5F]/30 transition-all"
+                  className="w-full bg-[#F5F1EB] border border-[#C59B5F]/20 rounded-xl px-4 py-2.5 text-sm text-[#0B2017] focus:outline-none focus:border-[#C59B5F] focus:ring-2 focus:ring-[#C59B5F]/20 transition-all cursor-pointer font-medium"
                 >
                   {types.map((t) => (
                     <option key={t} value={t}>{t}</option>
@@ -135,10 +135,10 @@ export default function CatalogPage() {
                     <button
                       key={t}
                       onClick={() => setSelectedSaleType(t)}
-                      className={`flex-1 text-xs px-3 py-2 rounded-xl transition-all duration-200 font-medium ${
+                      className={`flex-1 text-xs px-3 py-2 rounded-xl transition-all duration-200 font-semibold border ${
                         selectedSaleType === t
-                          ? 'bg-[#0B2017] text-[#C59B5F] shadow-sm'
-                          : 'bg-[#F5F1EB] text-[#434B3D] hover:bg-[#C59B5F]/10 hover:text-[#0B2017]'
+                          ? 'bg-[#0B2017] text-[#C59B5F] border-[#C59B5F]/40 shadow-sm'
+                          : 'bg-[#F5F1EB] text-[#434B3D] border-transparent hover:bg-[#C59B5F]/10 hover:text-[#0B2017] hover:border-[#C59B5F]/25'
                       }`}
                     >
                       {t}
@@ -181,8 +181,8 @@ export default function CatalogPage() {
             </div>
 
             {filtered.length === 0 ? (
-              <div className="text-center py-20 bg-white rounded-2xl border border-[#C59B5F]/10">
-                <Filter className="w-12 h-12 text-[#C59B5F]/20 mx-auto mb-4" />
+              <div className="text-center py-20 bg-white rounded-2xl border border-[#C59B5F]/15 shadow-sm">
+                <Filter className="w-12 h-12 text-[#C59B5F]/30 mx-auto mb-4" />
                 <h3 className="font-display text-xl font-bold text-[#0B2017] mb-2">Nenhum livro encontrado</h3>
                 <p className="text-[#434B3D] text-sm">Tente ajustar seus filtros para encontrar o que procura.</p>
               </div>
@@ -197,25 +197,25 @@ export default function CatalogPage() {
                     whileHover={{ y: -6 }}
                     className="group"
                   >
-                    <div className="bg-white rounded-2xl shadow-sm overflow-hidden border border-[#C59B5F]/10 hover:border-[#C59B5F]/25 hover:shadow-xl hover:shadow-[#0B2017]/8 transition-all duration-500">
+                    <div className="bg-white rounded-2xl shadow-md overflow-hidden border border-[#C59B5F]/20 hover:border-[#C59B5F]/50 hover:shadow-2xl hover:shadow-[#C59B5F]/15 transition-all duration-500">
                       <div className="aspect-[3/4] overflow-hidden relative">
                         <img
                           src={book.cover}
                           alt={book.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B2017]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B2017]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="absolute top-3 left-3 flex flex-col gap-2">
-                          <span className="bg-[#0B2017]/85 text-[#C59B5F] text-[11px] px-2.5 py-1 rounded-lg font-medium backdrop-blur-sm border border-[#C59B5F]/20 w-fit">
+                          <span className="bg-[#0B2017]/85 text-[#C59B5F] text-[11px] px-2.5 py-1 rounded-lg font-medium backdrop-blur-sm border border-[#C59B5F]/20 w-fit shadow-sm">
                             {book.genre}
                           </span>
-                          <span className="bg-[#C59B5F] text-[#0B2017] text-[11px] px-2.5 py-1 rounded-lg font-bold w-fit shadow-lg">
+                          <span className="bg-[#C59B5F] text-[#0B2017] text-[11px] px-2.5 py-1 rounded-lg font-bold w-fit shadow-md shadow-black/20">
                             {book.condition}
                           </span>
                         </div>
                       </div>
                       <div className="p-5">
-                        <h3 className="font-display text-base font-bold text-[#0B2017] mb-1 line-clamp-1">
+                        <h3 className="font-display text-base font-bold text-[#0B2017] mb-1 line-clamp-1 group-hover:text-[#4E3621] transition-colors">
                           {book.title}
                         </h3>
                         <p className="text-[#434B3D] text-sm mb-3">{book.author}</p>
@@ -223,19 +223,19 @@ export default function CatalogPage() {
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
-                              className={`w-3.5 h-3.5 ${i < Math.round(book.rating) ? 'fill-[#C59B5F] text-[#C59B5F]' : 'text-[#C59B5F]/20'}`}
+                              className={`w-3.5 h-3.5 ${i < Math.round(book.rating) ? 'fill-[#C59B5F] text-[#C59B5F]' : 'text-[#C59B5F]/25'}`}
                             />
                           ))}
-                          <span className="text-xs text-[#434B3D] ml-1">{book.rating}</span>
+                          <span className="text-xs text-[#434B3D] ml-1 font-medium">{book.rating}</span>
                         </div>
-                        <div className="flex items-center justify-between pt-3 border-t border-[#C59B5F]/10">
+                        <div className="flex items-center justify-between pt-3.5 border-t border-[#C59B5F]/15">
                           <div>
                             <p className="text-lg font-bold text-[#0B2017]">R$ {book.price.toFixed(2)}</p>
                             <p className="text-xs text-[#434B3D]">Aluguel: R$ {book.rentPrice.toFixed(2)}/dia</p>
                           </div>
                           <Link
                             to={`/livro/${book.id}`}
-                            className="bg-[#0B2017] text-[#C59B5F] px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-[#C59B5F] hover:text-[#0B2017] transition-all duration-300"
+                            className="bg-[#0B2017] text-[#C59B5F] px-4 py-2.5 rounded-xl text-sm font-semibold border border-[#C59B5F]/20 hover:bg-[#C59B5F] hover:text-[#0B2017] hover:border-transparent hover:shadow-md hover:shadow-[#C59B5F]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                           >
                             Ver mais
                           </Link>

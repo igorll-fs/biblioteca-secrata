@@ -36,34 +36,36 @@ export default function BookDetailPage() {
 
   return (
     <div className="bg-[#F5F1EB] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Link to="/livros" className="inline-flex items-center gap-2 text-[#434B3D] hover:text-[#C59B5F] transition-colors mb-6 text-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+        <Link to="/livros" className="inline-flex items-center gap-2 text-[#434B3D] hover:text-[#C59B5F] transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" />
           Voltar ao catálogo
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} className="flex justify-center">
             <div className="relative w-full max-w-md">
-              <img src={book.cover} alt={book.title} className="w-full rounded-2xl shadow-xl" />
+              <div className="rounded-2xl shadow-2xl shadow-[#0B2017]/15 border border-[#C59B5F]/25 overflow-hidden">
+                <img src={book.cover} alt={book.title} className="w-full object-cover" />
+              </div>
               <div className="absolute top-4 right-4 flex gap-2">
-                <button className="bg-white/90 p-2 rounded-full shadow hover:bg-white transition-colors">
+                <button className="bg-white/90 backdrop-blur-sm p-2.5 rounded-full shadow-md hover:bg-white hover:text-[#C59B5F] hover:shadow-lg transition-all duration-200">
                   <Heart className="w-5 h-5 text-[#4E3621]" />
                 </button>
-                <button className="bg-white/90 p-2 rounded-full shadow hover:bg-white transition-colors">
+                <button className="bg-white/90 backdrop-blur-sm p-2.5 rounded-full shadow-md hover:bg-white hover:text-[#C59B5F] hover:shadow-lg transition-all duration-200">
                   <Share2 className="w-5 h-5 text-[#4E3621]" />
                 </button>
               </div>
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
             <div className="flex items-center gap-3 mb-3">
-              <span className="bg-[#C59B5F]/20 text-[#4E3621] text-xs font-semibold px-3 py-1 rounded-full">{book.genre}</span>
-              <span className="bg-[#0B2017]/10 text-[#0B2017] text-xs font-semibold px-3 py-1 rounded-full">{book.condition}</span>
+              <span className="bg-[#C59B5F]/20 text-[#4E3621] text-xs font-semibold px-3 py-1 rounded-full border border-[#C59B5F]/30">{book.genre}</span>
+              <span className="bg-[#0B2017]/10 text-[#0B2017] text-xs font-semibold px-3 py-1 rounded-full border border-[#0B2017]/15">{book.condition}</span>
             </div>
 
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-[#0B2017] mb-2">{book.title}</h1>
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-[#0B2017] mb-2 leading-tight">{book.title}</h1>
             <p className="text-[#434B3D] text-lg mb-4">por <span className="font-semibold">{book.author}</span></p>
 
             <div className="flex items-center gap-4 mb-6">
@@ -76,51 +78,51 @@ export default function BookDetailPage() {
               </div>
             </div>
 
-            <div className="bg-[#EADFC9] rounded-2xl p-6 mb-6">
-              <div className="grid grid-cols-2 gap-4 mb-4">
+            <div className="bg-[#EADFC9] rounded-2xl p-6 sm:p-8 mb-8 border border-[#C59B5F]/20 shadow-md">
+              <div className="grid grid-cols-2 gap-4 mb-5 pb-5 border-b border-[#C59B5F]/15">
                 <div>
-                  <p className="text-[#434B3D] text-sm mb-1">Preço de Venda</p>
-                  <p className="text-2xl font-bold text-[#0B2017]">R$ {book.price.toFixed(2)}</p>
+                  <p className="text-[#434B3D] text-xs uppercase tracking-wider mb-1 font-semibold">Preço de Venda</p>
+                  <p className="font-display text-2xl sm:text-3xl font-bold text-[#0B2017]">R$ {book.price.toFixed(2)}</p>
                 </div>
                 <div>
-                  <p className="text-[#434B3D] text-sm mb-1">Aluguel por Dia</p>
-                  <p className="text-2xl font-bold text-[#C59B5F]">R$ {book.rentPrice.toFixed(2)}</p>
+                  <p className="text-[#434B3D] text-xs uppercase tracking-wider mb-1 font-semibold">Aluguel por Dia</p>
+                  <p className="font-display text-2xl sm:text-3xl font-bold text-[#C59B5F]">R$ {book.rentPrice.toFixed(2)}</p>
                 </div>
               </div>
 
-              <div className="mb-4">
-                <label className="block text-sm font-semibold text-[#0B2017] mb-2">Dias de Aluguel</label>
+              <div className="mb-6">
+                <label className="block text-sm font-semibold text-[#0B2017] mb-2.5">Dias de Aluguel</label>
                 <div className="flex gap-2">
                   {[7, 14, 30].map((d) => (
                     <button
                       key={d}
                       onClick={() => setRentDays(d)}
-                      className={`flex-1 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      className={`flex-1 py-2.5 rounded-xl text-sm font-semibold border transition-all duration-200 ${
                         rentDays === d
-                          ? 'bg-[#C59B5F] text-[#0B2017]'
-                          : 'bg-[#F5F1EB] text-[#434B3D] hover:bg-[#C59B5F]/20'
+                          ? 'bg-[#C59B5F] text-[#0B2017] border-[#C59B5F] shadow-sm'
+                          : 'bg-[#F5F1EB] text-[#434B3D] border-[#C59B5F]/15 hover:bg-[#C59B5F]/15 hover:border-[#C59B5F]/30 hover:text-[#0B2017]'
                       }`}
                     >
                       {d} dias
                     </button>
                   ))}
                 </div>
-                <p className="text-xs text-[#434B3D] mt-2">
-                  Total aluguel {rentDays} dias: R$ {(book.rentPrice * rentDays).toFixed(2)}
+                <p className="text-xs text-[#434B3D] mt-2.5 font-medium">
+                  Total aluguel {rentDays} dias: <span className="font-bold text-[#0B2017]">R$ {(book.rentPrice * rentDays).toFixed(2)}</span>
                 </p>
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <button
                   onClick={() => handleAddToCart('buy')}
-                  className="flex-1 bg-[#C59B5F] text-[#0B2017] py-3 rounded-xl font-semibold hover:bg-[#b88d52] transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 bg-[#C59B5F] text-[#0B2017] py-3.5 rounded-xl font-bold hover:bg-[#d4aa6e] hover:shadow-xl hover:shadow-[#C59B5F]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <ShoppingCart className="w-5 h-5" />
                   Comprar
                 </button>
                 <button
                   onClick={() => handleAddToCart('rent')}
-                  className="flex-1 border border-[#C59B5F] text-[#C59B5F] py-3 rounded-xl font-semibold hover:bg-[#C59B5F]/10 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 border-2 border-[#C59B5F] text-[#0B2017] py-3.5 rounded-xl font-bold hover:bg-[#C59B5F] hover:text-[#0B2017] hover:shadow-xl hover:shadow-[#C59B5F]/20 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <Clock className="w-5 h-5" />
                   Alugar
@@ -128,7 +130,7 @@ export default function BookDetailPage() {
               </div>
 
               {added && (
-                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center text-[#434B3D] text-sm mt-3 font-medium">
+                <motion.p initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} className="text-center text-[#0B2017] text-sm mt-3 font-semibold bg-[#C59B5F]/20 py-2 rounded-lg">
                   Adicionado ao carrinho!
                 </motion.p>
               )}
@@ -141,7 +143,7 @@ export default function BookDetailPage() {
 
             <div className="border-t border-[#C59B5F]/20 pt-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#C59B5F]/20 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-[#C59B5F]/20 border border-[#C59B5F]/30 rounded-full flex items-center justify-center">
                   <BookOpen className="w-5 h-5 text-[#C59B5F]" />
                 </div>
                 <div>
@@ -153,13 +155,13 @@ export default function BookDetailPage() {
           </motion.div>
         </div>
 
-        <div className="mt-12">
+        <div className="mt-14">
           <div className="flex gap-6 border-b border-[#C59B5F]/20 mb-6">
             {['description', 'details', 'reviews'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`pb-3 text-sm font-semibold transition-colors ${
+                className={`pb-3 text-sm font-semibold transition-all ${
                   activeTab === tab
                     ? 'text-[#C59B5F] border-b-2 border-[#C59B5F]'
                     : 'text-[#434B3D] hover:text-[#0B2017]'
@@ -171,13 +173,13 @@ export default function BookDetailPage() {
           </div>
 
           {activeTab === 'description' && (
-            <div className="bg-[#EADFC9] rounded-2xl p-8">
+            <div className="bg-[#EADFC9] rounded-2xl p-6 sm:p-8 border border-[#C59B5F]/20 shadow-sm">
               <p className="text-[#0B2017] leading-relaxed text-base">{book.description}</p>
             </div>
           )}
 
           {activeTab === 'details' && (
-            <div className="bg-[#EADFC9] rounded-2xl p-8">
+            <div className="bg-[#EADFC9] rounded-2xl p-6 sm:p-8 border border-[#C59B5F]/20 shadow-sm">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {[
                   { label: 'Editora', value: book.publisher },
@@ -186,7 +188,7 @@ export default function BookDetailPage() {
                   { label: 'ISBN', value: book.isbn },
                 ].map((d) => (
                   <div key={d.label}>
-                    <p className="text-[#434B3D] text-sm mb-1">{d.label}</p>
+                    <p className="text-[#434B3D] text-xs uppercase tracking-wider mb-1 font-semibold">{d.label}</p>
                     <p className="font-semibold text-[#0B2017]">{d.value}</p>
                   </div>
                 ))}
@@ -197,7 +199,7 @@ export default function BookDetailPage() {
           {activeTab === 'reviews' && (
             <div className="space-y-4">
               {book.reviewsList.map((review, i) => (
-                <div key={i} className="bg-[#EADFC9] rounded-2xl p-6">
+                <div key={i} className="bg-[#EADFC9] rounded-2xl p-6 border border-[#C59B5F]/20 shadow-sm">
                   <div className="flex items-center justify-between mb-3">
                     <div>
                       <p className="font-semibold text-[#0B2017]">{review.user}</p>
@@ -213,7 +215,7 @@ export default function BookDetailPage() {
                 </div>
               ))}
               {book.reviewsList.length === 0 && (
-                <div className="text-center py-8 text-[#434B3D]">Nenhuma avaliação ainda.</div>
+                <div className="text-center py-8 text-[#434B3D] bg-[#EADFC9] rounded-2xl border border-[#C59B5F]/20">Nenhuma avaliação ainda.</div>
               )}
             </div>
           )}

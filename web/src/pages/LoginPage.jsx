@@ -37,58 +37,65 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="bg-[#0B2017] min-h-screen flex items-center justify-center px-4 py-12">
-      <div className="w-full max-w-md">
+    <div className="bg-[#0B2017] min-h-[calc(100vh-var(--header-height))] flex items-center justify-center px-4 py-16 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.06]">
+        <div className="absolute top-10 left-1/4 w-80 h-80 bg-[#C59B5F] rounded-full blur-[140px]" />
+        <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-[#434B3D] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="relative w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <BookOpen className="w-10 h-10 text-[#C59B5F]" />
-            <span className="font-display text-2xl font-bold text-[#C59B5F]">A Biblioteca Secrata</span>
+          <Link to="/" className="inline-flex items-center gap-2.5 mb-6 group">
+            <div className="w-10 h-10 rounded-xl bg-[#C59B5F]/15 border border-[#C59B5F]/30 flex items-center justify-center group-hover:bg-[#C59B5F]/25 transition-all shadow-md">
+              <BookOpen className="w-6 h-6 text-[#C59B5F]" />
+            </div>
+            <span className="font-display text-2xl font-bold text-[#C59B5F] group-hover:text-[#d4aa6e] transition-colors">A Biblioteca Secrata</span>
           </Link>
-          <h1 className="font-display text-3xl font-bold text-[#EADFC9] mb-2">Bem-vindo de volta</h1>
-          <p className="text-[#EADFC9]/60">Entre na sua conta para continuar</p>
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-[#EADFC9] mb-2">Bem-vindo de volta</h1>
+          <p className="text-[#EADFC9]/60 font-light">Entre na sua conta para continuar</p>
         </div>
 
-        <div className="bg-[#EADFC9] rounded-2xl p-8">
+        <div className="bg-[#EADFC9] rounded-2xl p-8 sm:p-10 border border-[#C59B5F]/25 shadow-2xl shadow-black/50">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl mb-6 text-sm">
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl mb-6 text-sm font-medium">
               {error}
             </div>
           )}
 
           <form onSubmit={handleEmailLogin} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-[#0B2017] mb-1.5">E-mail</label>
+              <label className="block text-xs font-semibold text-[#0B2017] uppercase tracking-wider mb-1.5">E-mail</label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#434B3D]" />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#434B3D]/70" />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="seu@email.com"
-                  className="w-full bg-[#F5F1EB] border border-[#C59B5F]/20 rounded-xl pl-11 pr-4 py-3 text-[#0B2017] placeholder:text-[#434B3D]/40 focus:outline-none focus:border-[#C59B5F]"
+                  className="w-full bg-[#F5F1EB] border border-[#C59B5F]/25 rounded-xl pl-11 pr-4 py-3 text-[#0B2017] placeholder:text-[#434B3D]/40 focus:outline-none focus:border-[#C59B5F] focus:ring-2 focus:ring-[#C59B5F]/20 transition-all font-medium"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#0B2017] mb-1.5">Senha</label>
+              <label className="block text-xs font-semibold text-[#0B2017] uppercase tracking-wider mb-1.5">Senha</label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#434B3D]" />
+                <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#434B3D]/70" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Sua senha"
-                  className="w-full bg-[#F5F1EB] border border-[#C59B5F]/20 rounded-xl pl-11 pr-12 py-3 text-[#0B2017] placeholder:text-[#434B3D]/40 focus:outline-none focus:border-[#C59B5F]"
+                  className="w-full bg-[#F5F1EB] border border-[#C59B5F]/25 rounded-xl pl-11 pr-12 py-3 text-[#0B2017] placeholder:text-[#434B3D]/40 focus:outline-none focus:border-[#C59B5F] focus:ring-2 focus:ring-[#C59B5F]/20 transition-all font-medium"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#434B3D] hover:text-[#0B2017]"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#434B3D]/70 hover:text-[#0B2017] transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
             </div>
@@ -96,7 +103,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#C59B5F] text-[#0B2017] py-3 rounded-xl font-semibold hover:bg-[#b88d52] transition-colors disabled:opacity-50"
+              className="w-full bg-[#C59B5F] text-[#0B2017] py-3.5 rounded-xl font-bold hover:bg-[#d4aa6e] hover:shadow-xl hover:shadow-[#C59B5F]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Entrando...' : 'Entrar'}
             </button>
@@ -106,14 +113,14 @@ export default function LoginPage() {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-[#C59B5F]/20" />
             </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="bg-[#EADFC9] px-3 text-[#434B3D]">ou</span>
+            <div className="relative flex justify-center text-xs uppercase tracking-wider">
+              <span className="bg-[#EADFC9] px-3 text-[#434B3D] font-semibold">ou</span>
             </div>
           </div>
 
           <button
             onClick={handleGoogleLogin}
-            className="w-full bg-white border border-[#C59B5F]/20 text-[#0B2017] py-3 rounded-xl font-semibold hover:bg-[#F5F1EB] transition-colors flex items-center justify-center gap-3"
+            className="w-full bg-white border border-[#C59B5F]/25 text-[#0B2017] py-3.5 rounded-xl font-semibold hover:bg-[#F5F1EB] hover:border-[#C59B5F]/50 hover:shadow-md transition-all flex items-center justify-center gap-3"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
@@ -126,7 +133,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-[#434B3D] mt-6">
             Não tem uma conta?{' '}
-            <Link to="/cadastro" className="text-[#C59B5F] font-semibold hover:underline">
+            <Link to="/cadastro" className="text-[#0B2017] font-bold hover:text-[#C59B5F] underline decoration-[#C59B5F]/40 underline-offset-4 transition-colors">
               Cadastre-se
             </Link>
           </p>

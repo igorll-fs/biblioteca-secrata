@@ -30,11 +30,11 @@ export default function Header() {
     <header className="sticky top-0 z-50 backdrop-blur-header bg-[#0B2017]/90 border-b border-[#C59B5F]/15" style={{paddingLeft: 16, paddingRight: 16}}>
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-lg bg-[#C59B5F]/10 flex items-center justify-center group-hover:bg-[#C59B5F]/20 transition-colors">
+          <Link to="/" className="flex items-center gap-3 group transition-transform hover:-translate-y-0.5">
+            <div className="w-9 h-9 rounded-lg bg-[#C59B5F]/10 border border-[#C59B5F]/20 flex items-center justify-center group-hover:bg-[#C59B5F]/20 group-hover:border-[#C59B5F]/40 group-hover:shadow-md group-hover:shadow-[#C59B5F]/20 transition-all duration-300">
               <BookOpen className="w-5 h-5 text-[#C59B5F]" />
             </div>
-            <span className="font-display text-base font-bold text-[#C59B5F] tracking-wide">
+            <span className="font-display text-base font-bold text-[#C59B5F] tracking-wide group-hover:text-[#d4aa6e] transition-colors">
               A Biblioteca Secrata
             </span>
           </Link>
@@ -44,10 +44,10 @@ export default function Header() {
               <Link
                 key={link.to}
                 to={link.to}
-                className="relative text-[#EADFC9]/70 hover:text-[#EADFC9] font-medium text-sm py-1 group"
+                className="relative text-[#EADFC9]/70 hover:text-[#C59B5F] font-medium text-sm py-1 transition-colors duration-300 group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C59B5F] group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#C59B5F] group-hover:w-full transition-all duration-300 shadow-sm shadow-[#C59B5F]/50" />
               </Link>
             ))}
           </nav>
@@ -55,11 +55,11 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <Link
               to="/carrinho"
-              className="relative p-2.5 rounded-xl text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 transition-all"
+              className="relative p-2.5 rounded-xl text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 border border-transparent hover:border-[#C59B5F]/20 transition-all duration-300"
             >
               <ShoppingCart className="w-5 h-5" />
               {items.length > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 bg-[#C59B5F] text-[#0B2017] text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg shadow-[#C59B5F]/30">
+                <span className="absolute -top-0.5 -right-0.5 bg-[#C59B5F] text-[#0B2017] text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-lg shadow-[#C59B5F]/40">
                   {items.length}
                 </span>
               )}
@@ -69,7 +69,7 @@ export default function Header() {
               <div className="hidden md:block relative" ref={dropdownRef}>
                 <button
                   onClick={() => setUserDropdown(!userDropdown)}
-                  className="flex items-center gap-2 p-1.5 rounded-xl hover:bg-[#C59B5F]/10 transition-all"
+                  className="flex items-center gap-2 p-1.5 rounded-xl hover:bg-[#C59B5F]/10 border border-transparent hover:border-[#C59B5F]/20 transition-all"
                 >
                   <div className="w-8 h-8 rounded-full bg-[#C59B5F]/20 border border-[#C59B5F]/30 flex items-center justify-center">
                     <User className="w-4 h-4 text-[#C59B5F]" />
@@ -78,21 +78,21 @@ export default function Header() {
                 </button>
 
                 {userDropdown && (
-                  <div className="absolute right-0 top-12 w-48 bg-[#0B2017] border border-[#C59B5F]/20 rounded-xl shadow-2xl shadow-black/40 overflow-hidden">
+                  <div className="absolute right-0 top-12 w-48 bg-[#0B2017] border border-[#C59B5F]/25 rounded-xl shadow-2xl shadow-black/60 overflow-hidden backdrop-blur-md">
                     <div className="px-4 py-3 border-b border-[#C59B5F]/10">
                       <p className="text-sm font-medium text-[#EADFC9] truncate">{currentUser.name || 'Minha Conta'}</p>
                     </div>
                     <Link
                       to="/meu-painel"
                       onClick={() => setUserDropdown(false)}
-                      className="flex items-center gap-2 px-4 py-2.5 text-sm text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/5"
+                      className="flex items-center gap-2 px-4 py-2.5 text-sm text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 transition-colors"
                     >
-                      <User className="w-4 h-4" />
+                      <User className="w-4 h-4 text-[#C59B5F]" />
                       Meu Painel
                     </Link>
                     <button
                       onClick={() => { logout(); setUserDropdown(false); }}
-                      className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/5"
+                      className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 transition-colors text-left"
                     >
                       Sair
                     </button>
@@ -101,12 +101,12 @@ export default function Header() {
               </div>
             ) : (
               <div className="hidden md:flex items-center gap-3">
-                <Link to="/login" className="text-sm text-[#EADFC9]/70 hover:text-[#EADFC9] transition-colors font-medium">
+                <Link to="/login" className="text-sm text-[#EADFC9]/70 hover:text-[#C59B5F] transition-colors font-medium px-3 py-2">
                   Entrar
                 </Link>
                 <Link
                   to="/cadastro"
-                  className="bg-[#C59B5F] text-[#0B2017] px-5 py-2 rounded-xl text-sm font-semibold hover:bg-[#d4aa6e] hover:shadow-lg hover:shadow-[#C59B5F]/20 transition-all"
+                  className="bg-[#C59B5F] text-[#0B2017] px-5 py-2 rounded-xl text-sm font-semibold hover:bg-[#d4aa6e] hover:shadow-lg hover:shadow-[#C59B5F]/25 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                 >
                   Cadastrar
                 </Link>
@@ -130,26 +130,26 @@ export default function Header() {
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileOpen(false)}
-                  className="text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/5 transition-all font-medium px-3 py-2.5 rounded-lg"
+                  className="text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 transition-all font-medium px-3 py-2.5 rounded-lg"
                 >
                   {link.label}
                 </Link>
               ))}
               {currentUser ? (
                 <>
-                  <Link to="/meu-painel" onClick={() => setMobileOpen(false)} className="text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/5 px-3 py-2.5 rounded-lg">
+                  <Link to="/meu-painel" onClick={() => setMobileOpen(false)} className="text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 px-3 py-2.5 rounded-lg transition-colors">
                     Minha Conta
                   </Link>
-                  <button onClick={() => { logout(); setMobileOpen(false); }} className="text-left text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/5 px-3 py-2.5 rounded-lg">
+                  <button onClick={() => { logout(); setMobileOpen(false); }} className="text-left text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 px-3 py-2.5 rounded-lg transition-colors">
                     Sair
                   </button>
                 </>
               ) : (
                 <>
-                  <Link to="/login" onClick={() => setMobileOpen(false)} className="text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/5 px-3 py-2.5 rounded-lg">
+                  <Link to="/login" onClick={() => setMobileOpen(false)} className="text-[#EADFC9]/70 hover:text-[#C59B5F] hover:bg-[#C59B5F]/10 px-3 py-2.5 rounded-lg transition-colors">
                     Entrar
                   </Link>
-                  <Link to="/cadastro" onClick={() => setMobileOpen(false)} className="text-[#C59B5F] font-semibold hover:bg-[#C59B5F]/5 px-3 py-2.5 rounded-lg">
+                  <Link to="/cadastro" onClick={() => setMobileOpen(false)} className="text-[#C59B5F] font-semibold hover:bg-[#C59B5F]/10 px-3 py-2.5 rounded-lg transition-colors">
                     Cadastrar
                   </Link>
                 </>
